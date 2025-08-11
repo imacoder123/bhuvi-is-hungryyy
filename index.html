@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bhuvi is hungry</title>
+<style>
+  body {
+    background: rgb(255, 214, 221);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px 20px;
+    color: #333;
+  }
+  .pixel-guy, .food-img {
+    max-width: 200px;
+    margin: 20px auto;
+    image-rendering: pixelated; /* makes images crisp pixel style */
+  }
+  .message {
+    font-size: 34px;
+    margin: 30px 0 20px 0;
+    min-height: 40px;
+  }
+  button {
+    font-size: 22px;
+    padding: 10px 30px;
+    border-radius: 12px;
+    border: none;
+    background: #ff7f50;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px #cc5a3c;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #ff9673;
+  }
+  .food-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .food-img {
+    width: 1000px;
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Your pixel guy image -->
+<img id="pixelGuy" class="pixel-guy" src="man.png" alt="Pixel Curly Hair Guy" />
+
+<div class="message" id="message">HELLO BHUVIII... <br> Are you hungry? 😋</div>
+
+<button id="yesBtn">Yes</button>
+<button>no.</button>
+
+<div class="food-container" id="foodContainer" style="display:none;">
+  <!-- Food images go here -->
+  <img class="food-img" src="food1.png" alt="Fries" />
+  <img class="food-img" src="food2.png" alt="Pizza" />
+
+</div>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const message = document.getElementById('message');
+  const foodContainer = document.getElementById('foodContainer');
+
+  yesBtn.addEventListener('click', () => {
+    // Show waiting message
+    message.textContent = "Gimme a min, I’ll be right back...";
+
+    // Disable button
+    yesBtn.disabled = true;
+    yesBtn.style.opacity = 0.5;
+    yesBtn.style.cursor = "default";
+
+    // After 1 second show food images
+    setTimeout(() => {
+      message.textContent = "Here you go! 🩷";
+      foodContainer.style.display = "flex";
+    }, 1000);
+  });
+</script>
+
+</body>
+</html>
